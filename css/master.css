@@ -3,18 +3,18 @@
 /* Text inside these asterisks and slashes are comments for human */
 
   a {
-    color: rgb(0, 255, 0);/* set the text color to blue here */
+    color: rgb(5, 180, 98);/* set the text color to blue here */
     text-decoration: none; /* This means we do not want hyperlinks to be underlined */
   }
 
   a:hover {
-    color: red;/* set the text color to red here */
+    color: rgb(0, 89, 255);/* set the text color to red here */
     text-decoration: none; /* This means we do not want hyperlinks to be underlined */
   }
 
   body {
-    background-color:black;/* set the background color here */
-    color: white;/* set the text color to black here */
+    background-color:rgb(235, 235, 235);/* set the background color here */
+    color: rgb(0, 0, 0);/* set the text color to black here */
     font-family: 'Times New Roman', Times, serif;/* set the font here */
     text-align:center;/* set the text alignment here */
    }
@@ -28,11 +28,11 @@
     margin-bottom: 0.5rem;
     margin-top: 3rem;
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(255, 11, 11);
+    color: rgb(7, 163, 90);
    }
 
   h2 {
-    color: rgb(233, 140, 19);/* set the text color of to #075AAB here */
+    color: rgb(19, 130, 233);/* set the text color of to #075AAB here */
     /* set both the bottom margin and top margin to 2.5rem here */
     margin-bottom: 2.5rem;
     margin-top: 2rem;
