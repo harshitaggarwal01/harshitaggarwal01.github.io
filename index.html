@@ -8,6 +8,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22 fill=%22%2300f2ea%22>H</text></svg>">
 
+    <!-- TagCloud Library for 3D Skills Globe -->
+    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -41,6 +44,9 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+        <!-- Skills Globe Container -->
+        <span class="skill-globe"></span>
+        
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="glitch-text">Harshit Aggarwal</h1>
@@ -153,17 +159,13 @@
         </div>
     </section>
 
-    <!-- Projects Section (Infinite Carousel) -->
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Featured Projects</h2>
-        
-        <!-- Carousel Container -->
         <div class="carousel-container">
             <button class="carousel-nav prev-btn"><i class="fas fa-chevron-left"></i></button>
-            
             <div class="carousel-track-container">
                 <ul class="carousel-track">
-                    
                     <!-- Project 1 -->
                     <li class="project-card glass-panel">
                         <div class="project-img-container">
@@ -180,7 +182,6 @@
                             </div>
                         </div>
                     </li>
-
                     <!-- Project 2 -->
                     <li class="project-card glass-panel">
                         <div class="project-img-container">
@@ -196,8 +197,7 @@
                             </div>
                         </div>
                     </li>
-
-                    <!-- Project 3 (Added for Demo) -->
+                    <!-- Project 3 -->
                     <li class="project-card glass-panel">
                         <div class="project-img-container">
                             <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be1?q=80&w=2070&auto=format&fit=crop" alt="AI Robot" class="project-img">
@@ -213,8 +213,7 @@
                             </div>
                         </div>
                     </li>
-
-                    <!-- Project 4 (Added for Demo) -->
+                    <!-- Project 4 -->
                     <li class="project-card glass-panel">
                         <div class="project-img-container">
                             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop" alt="Matrix Code" class="project-img">
@@ -229,10 +228,8 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
             </div>
-
             <button class="carousel-nav next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
@@ -241,7 +238,6 @@
     <section id="community">
         <h2>Community Work</h2>
         <div class="community-grid">
-            <!-- Item 1 -->
             <div class="community-card glass-panel">
                 <div class="community-header">
                     <div class="icon-box secondary-box">
@@ -259,7 +255,6 @@
                     <span class="tag secondary-tag">Mentorship</span>
                 </div>
             </div>
-            <!-- Item 2 -->
             <div class="community-card glass-panel">
                 <div class="community-header">
                     <div class="icon-box primary-box">

@@ -7,6 +7,37 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 
+    // --- 3D SKILLS GLOBE (TagCloud.js) ---
+    const myTags = [
+        'Python', 'Java', 'C++', 'JavaScript',
+        'TypeScript', 'React', 'Angular', 'Node.js',
+        'Spring Boot', 'AWS', 'Docker', 'Kubernetes',
+        'PyTorch', 'TensorFlow', 'OpenCV', 'Git',
+        'SQL', 'MongoDB', 'Redis', 'Kafka',
+        'Jenkins', 'CI/CD', 'Microservices'
+    ];
+
+    // Function to determine radius based on current screen width
+    function getGlobeRadius() {
+        const width = window.innerWidth;
+        if (width > 1600) return 600; // Large Desktops
+        if (width > 1200) return 500; // Standard Desktops
+        if (width > 768) return 350;  // Tablets/Laptops
+        return 220;                   // Mobile Phones
+    }
+
+    // Initialize the globe
+    let globeRadius = getGlobeRadius();
+    
+    // We assign it to a variable in case we want to manipulate it later
+    let myGlobe = TagCloud('.skill-globe', myTags, {
+        radius: globeRadius,
+        maxSpeed: 'fast',
+        initSpeed: 'normal',
+        direction: 135,
+        keep: true
+    });
+
     // --- Timeline Logic ---
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach(item => {
@@ -24,14 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-btn');
     const prevBtn = document.querySelector('.prev-btn');
 
-    // Clone slides for infinite effect (Clone first 2 to end, last 2 to start)
-    // We clone 2 because we are showing roughly 2 slides at a time
     const cloneCount = 2; 
     
     const firstClones = slides.slice(0, cloneCount).map(slide => slide.cloneNode(true));
     const lastClones = slides.slice(-cloneCount).map(slide => slide.cloneNode(true));
 
-    // Append/Prepend clones
     firstClones.forEach(clone => {
         clone.classList.add('clone');
         track.appendChild(clone);
@@ -41,71 +69,51 @@ document.addEventListener('DOMContentLoaded', () => {
         track.insertBefore(clone, track.firstChild);
     });
 
-    // Re-select all slides including clones
     const allSlides = Array.from(track.children);
-    
-    let currentIndex = cloneCount; // Start at the first real slide
+    let currentIndex = cloneCount; 
     let cardWidth = allSlides[0].getBoundingClientRect().width;
-    let gap = 32; // 2rem = 32px (approx) - must match CSS gap
+    let gap = 32; 
     
-    // Function to set position
     const setTrackPosition = (index, transition = true) => {
-        // Recalculate width in case of resize
         cardWidth = allSlides[0].getBoundingClientRect().width;
-        
         if (!transition) {
             track.style.transition = 'none';
         } else {
             track.style.transition = 'transform 0.5s ease-in-out';
         }
-        
         const moveAmount = (cardWidth + gap) * index;
-        // Center alignment adjustment: 
-        // We want the left edge of the card 'index' to be slightly offset if we want centering,
-        // but for "glimpse" effect, usually simple translation works if CSS handles sizing.
-        // Let's just translate:
         track.style.transform = `translateX(-${moveAmount}px)`;
     };
 
-    // Initial Set
-    // Wait a moment for layout to stabilize
     setTimeout(() => {
-        cardWidth = allSlides[0].getBoundingClientRect().width; // Get correct width after render
+        cardWidth = allSlides[0].getBoundingClientRect().width;
         setTrackPosition(currentIndex, false); 
     }, 100);
 
-    // Next Button
     nextBtn.addEventListener('click', () => {
-        if (currentIndex >= allSlides.length - cloneCount) return; // Prevent clicking too fast
+        if (currentIndex >= allSlides.length - cloneCount) return; 
         currentIndex++;
         setTrackPosition(currentIndex);
     });
 
-    // Prev Button
     prevBtn.addEventListener('click', () => {
         if (currentIndex <= 0) return;
         currentIndex--;
         setTrackPosition(currentIndex);
     });
 
-    // Handle "Jump" on Transition End
     track.addEventListener('transitionend', () => {
         const totalRealSlides = slides.length;
-        
-        // If we scrolled past the last real slide to a clone
         if (currentIndex >= totalRealSlides + cloneCount) {
-            currentIndex = cloneCount; // Jump back to first real slide
+            currentIndex = cloneCount; 
             setTrackPosition(currentIndex, false);
         }
-        
-        // If we scrolled before the first real slide to a clone
         if (currentIndex < cloneCount) {
-            currentIndex = totalRealSlides + cloneCount - 1; // Jump to last real slide
+            currentIndex = totalRealSlides + cloneCount - 1; 
             setTrackPosition(currentIndex, false);
         }
     });
 
-    // Resize Handler
     window.addEventListener('resize', () => {
         cardWidth = allSlides[0].getBoundingClientRect().width;
         setTrackPosition(currentIndex, false);
