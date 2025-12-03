@@ -4,477 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harshit Aggarwal | Portfolio</title>
+    
+    <!-- Favicon (Dynamic SVG "H") -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22 fill=%22%2300f2ea%22>H</text></svg>">
+
+    <!-- Font Awesome for Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00f2ea; /* Bold Cyan Accent */
-            --secondary: #ff0055; /* Bold Pink/Red Accent */
-            --bg: #0f1115;
-            --card-bg: #161b22;
-            --text: #e6edf3;
-            --text-muted: #8b949e;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Typography --- */
-        h1, h2, h3 {
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            background: rgba(15, 17, 21, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 2rem;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, #1c2333 0%, var(--bg) 70%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            margin: 0 10px;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .btn:hover {
-            background: var(--primary);
-            color: var(--bg);
-            box-shadow: 0 0 20px rgba(0, 242, 234, 0.3);
-        }
-
-        /* --- Sections General --- */
-        section {
-            padding: 6rem 10%;
-        }
-
-        /* --- Education --- */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .edu-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .edu-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .edu-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .edu-date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* --- Experience (Timeline) --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 20px; /* Mobile default */
-            width: 2px;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 50px; /* Space for line */
-            cursor: pointer;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 11px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            background: var(--bg);
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            z-index: 2;
-            transition: var(--transition);
-        }
-
-        .timeline-item:hover .timeline-dot {
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .job-company {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .job-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-            opacity: 0;
-            margin-top: 0;
-        }
-
-        .timeline-item.active .job-details {
-            max-height: 1000px;
-            opacity: 1;
-            margin-top: 1rem;
-            transition: max-height 1s ease-in-out;
-        }
-        
-        .timeline-item.active .chevron {
-             transform: rotate(180deg);
-        }
-
-        .job-details ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .job-details li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        .job-details li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-
-        .chevron {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-            color: var(--text-muted);
-        }
-
-        /* --- Projects --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-color: var(--secondary);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #2a303c;
-            background-image: linear-gradient(45deg, #2a303c 25%, #323946 25%, #323946 50%, #2a303c 50%, #2a303c 75%, #323946 75%, #323946 100%);
-            background-size: 20px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 3rem;
-        }
-        
-        /* Replace with actual images if available, using CSS classes or inline styles */
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            background: rgba(0, 242, 234, 0.1);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        /* --- Community --- */
-        .community-content {
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.1), transparent);
-            padding: 3rem;
-            border-radius: 20px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        /* --- Contact --- */
-        .contact-container {
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            font-size: 2rem;
-            color: var(--text);
-        }
-
-        .social-btn:hover {
-            color: var(--primary);
-            transform: scale(1.2);
-        }
-        
-        .email-link {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            display: block;
-            color: var(--text-muted);
-        }
-
-        /* --- Animations --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Mobile Responsive --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--card-bg);
-                flex-direction: column;
-                padding: 2rem;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            }
-
-            .nav-links.active { display: flex; }
-            
-            .hamburger { display: block; }
-            
-            .timeline::before { left: 20px; }
-            .timeline-item { padding-left: 45px; }
-        }
-
-        /* Desktop Timeline Adjustments */
-        @media (min-width: 769px) {
-            .timeline::before { left: 50%; transform: translateX(-50%); }
-            
-            .timeline-item {
-                width: 50%;
-                padding-left: 0;
-                padding-right: 40px;
-                margin-left: 0;
-                text-align: right;
-            }
-            
-            .timeline-item:nth-child(even) {
-                margin-left: 50%;
-                padding-right: 0;
-                padding-left: 40px;
-                text-align: left;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-dot {
-                left: auto;
-                right: -11px;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: -11px;
-            }
-            
-            .job-header {
-                justify-content: flex-end;
-            }
-            
-            .timeline-item:nth-child(even) .job-header {
-                justify-content: flex-start;
-            }
-        }
-    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">Harshit<span style="color: var(--primary);">.</span></div>
-        <div class="hamburger" onclick="toggleMenu()">
+        <div class="logo">Harshit<span class="accent-dot">.</span></div>
+        <div class="hamburger" id="hamburger-btn">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="nav-links">
+        <div class="nav-links" id="nav-links">
             <a href="#hero">Home</a>
             <a href="#education">Education</a>
             <a href="#experience">Experience</a>
@@ -489,10 +37,10 @@
         <div class="hero-content">
             <h1>Harshit Aggarwal</h1>
             <p>Software Engineer | AI & Machine Learning Specialist | Full Stack Developer</p>
-            <p style="font-size: 1rem; margin-bottom: 2rem;">Master's Student at Brown University</p>
-            <div>
+            <p class="subtitle">Master's Student at Brown University</p>
+            <div class="cta-container">
                 <a href="#projects" class="btn">View Work</a>
-                <a href="#contact" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Contact Me</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
         </div>
     </section>
@@ -502,18 +50,18 @@
         <h2>Education</h2>
         <div class="education-grid">
             <div class="edu-card">
-                <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                <i class="fas fa-graduation-cap edu-icon primary-icon"></i>
                 <h3>Brown University</h3>
                 <span class="edu-date">Aug 2025 – May 2027</span>
                 <p>Master of Science (Sc.M.) in Computer Science</p>
-                <p style="margin-top: 10px; color: var(--text-muted);">50% Tuition Scholar</p>
+                <p class="edu-detail">50% Tuition Scholar</p>
             </div>
             <div class="edu-card">
-                <i class="fas fa-university" style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;"></i>
+                <i class="fas fa-university edu-icon secondary-icon"></i>
                 <h3>SRM Institute of Science & Technology</h3>
                 <span class="edu-date">Jul 2019 – May 2023</span>
                 <p>Bachelor of Technology in CS Engineering</p>
-                <p style="margin-top: 10px; color: var(--text-muted);">GPA: 9.2 / 10</p>
+                <p class="edu-detail">GPA: 9.2 / 10</p>
             </div>
         </div>
     </section>
@@ -521,17 +69,17 @@
     <!-- Work Experience Section (Timeline) -->
     <section id="experience">
         <h2>Work Experience</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">Click on an item to view details</p>
+        <p class="section-note">Click on an item to view details</p>
         <div class="timeline">
             
             <!-- Fidelity Full Time -->
-            <div class="timeline-item" onclick="toggleJob(this)">
+            <div class="timeline-item" data-target="job1">
                 <div class="timeline-dot"></div>
                 <div class="job-header">
                     <div class="job-title">Software Engineer <i class="fas fa-chevron-down chevron"></i></div>
                     <div class="job-company">Fidelity Investments</div>
                 </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Aug 2023 – Aug 2025</p>
+                <p class="job-date">Aug 2023 – Aug 2025</p>
                 <div class="job-details">
                     <ul>
                         <li>Modernized 70+ trading microservices by upgrading runtimes, reducing production incidents by 80%.</li>
@@ -543,13 +91,13 @@
             </div>
 
             <!-- Fidelity Intern -->
-            <div class="timeline-item" onclick="toggleJob(this)">
+            <div class="timeline-item" data-target="job2">
                 <div class="timeline-dot"></div>
                 <div class="job-header">
                     <div class="job-title">Software Dev Intern <i class="fas fa-chevron-down chevron"></i></div>
                     <div class="job-company">Fidelity Investments</div>
                 </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Feb 2023 – Jul 2023</p>
+                <p class="job-date">Feb 2023 – Jul 2023</p>
                 <div class="job-details">
                     <ul>
                         <li>Designed CIO’s real-time portfolio dashboard, cutting insight delay from 7 days to seconds.</li>
@@ -560,13 +108,13 @@
             </div>
 
             <!-- Tune.ai -->
-            <div class="timeline-item" onclick="toggleJob(this)">
+            <div class="timeline-item" data-target="job3">
                 <div class="timeline-dot"></div>
                 <div class="job-header">
                     <div class="job-title">Software Developer <i class="fas fa-chevron-down chevron"></i></div>
                     <div class="job-company">Tune.ai</div>
                 </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Jun 2022 – Aug 2022</p>
+                <p class="job-date">Jun 2022 – Aug 2022</p>
                 <div class="job-details">
                     <ul>
                         <li>Engineered training pipelines for 3 ML models, reducing overhead by 85%.</li>
@@ -589,7 +137,7 @@
                 </div>
                 <div class="project-info">
                     <h3>Visual Research Paper</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 10px 0;">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
+                    <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
                     <div class="tags">
                         <span class="tag">BERT</span>
                         <span class="tag">Flask</span>
@@ -606,7 +154,7 @@
                 </div>
                 <div class="project-info">
                     <h3>ResNet-from-Scratch</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 10px 0;">Constructed a ResNet Model from scratch with 2% accuracy variance and 30% faster training.</p>
+                    <p class="project-desc">Constructed a ResNet Model from scratch with 2% accuracy variance and 30% faster training.</p>
                     <div class="tags">
                         <span class="tag">TensorFlow</span>
                         <span class="tag">Deep Learning</span>
@@ -622,25 +170,25 @@
         <h2>Community Work</h2>
         <div class="community-content">
             <h3>Head of AI Research @ Next Tech Lab</h3>
-            <span style="display:block; color: var(--secondary); margin-bottom: 1rem; font-weight: 600;">Mar 2021 – Jan 2023</span>
+            <span class="community-date">Mar 2021 – Jan 2023</span>
             <p>Led 70+ researchers across 40+ ML projects and created ML programs for 400+ students, standardizing pipelines and scaling applied AI adoption.</p>
-            <div class="tags" style="margin-top: 1.5rem;">
-                <span class="tag" style="background: rgba(255, 0, 85, 0.1); color: var(--secondary);">Leadership</span>
-                <span class="tag" style="background: rgba(255, 0, 85, 0.1); color: var(--secondary);">Mentorship</span>
+            <div class="tags community-tags">
+                <span class="tag secondary-tag">Leadership</span>
+                <span class="tag secondary-tag">Mentorship</span>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="background: #0a0c0f;">
+    <section id="contact" class="contact-section">
         <h2>Contact Me</h2>
         <div class="contact-container">
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+            <p class="contact-intro">
                 I am currently looking for Software Engineering or ML Engineering internships for Summer 2026. Feel free to reach out!
             </p>
             
             <a href="mailto:harshit_aggarwal@brown.edu" class="email-link">harshit_aggarwal@brown.edu</a>
-            <p style="color: var(--text-muted); margin-top: 5px;">+1 (401) 255-2976 | Providence, RI</p>
+            <p class="contact-sub">+1 (401) 255-2976 | Providence, RI</p>
 
             <div class="social-links">
                 <a href="https://linkedin.com/in/harshitaggarwal01" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -650,40 +198,7 @@
         </div>
     </section>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-
-        // Timeline Expand/Collapse Logic
-        function toggleJob(element) {
-            // Close all other active items first (optional - remove if you want multiple open)
-            const allItems = document.querySelectorAll('.timeline-item');
-            allItems.forEach(item => {
-                if (item !== element) {
-                    item.classList.remove('active');
-                }
-            });
-
-            // Toggle clicked item
-            element.classList.toggle('active');
-        }
-
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                document.querySelector('.nav-links').classList.remove('active');
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <!-- External JS -->
+    <script src="script.js"></script>
 </body>
 </html>
