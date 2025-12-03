@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harshit Aggarwal | Portfolio</title>
     
-    <!-- Favicon (Dynamic SVG "H") -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22 fill=%22%2300f2ea%22>H</text></svg>">
 
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
-    <!-- External CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Background Animation Blobs -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -34,13 +41,15 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+        <div class="hero-overlay"></div> <!-- Dark overlay for text readability -->
         <div class="hero-content">
-            <h1>Harshit Aggarwal</h1>
-            <p>Software Engineer | AI & Machine Learning Specialist | Full Stack Developer</p>
+            <h1 class="glitch-text">Harshit Aggarwal</h1>
+            <p class="hero-role">Software Engineer <span class="divider">|</span> AI & ML Specialist</p>
             <p class="subtitle">Master's Student at Brown University</p>
+            
             <div class="cta-container">
-                <a href="#projects" class="btn">View Work</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <a href="#projects" class="btn btn-glow">View Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
     </section>
@@ -49,24 +58,28 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-grid">
-            <div class="edu-card">
-                <i class="fas fa-graduation-cap edu-icon primary-icon"></i>
+            <div class="edu-card glass-panel">
+                <div class="icon-box primary-box">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
                 <h3>Brown University</h3>
                 <span class="edu-date">Aug 2025 – May 2027</span>
                 <p>Master of Science (Sc.M.) in Computer Science</p>
-                <p class="edu-detail">50% Tuition Scholar</p>
+                <p class="edu-detail highlight">50% Tuition Scholar</p>
             </div>
-            <div class="edu-card">
-                <i class="fas fa-university edu-icon secondary-icon"></i>
-                <h3>SRM Institute of Science & Technology</h3>
+            <div class="edu-card glass-panel">
+                <div class="icon-box secondary-box">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3>SRM Institute</h3>
                 <span class="edu-date">Jul 2019 – May 2023</span>
-                <p>Bachelor of Technology in CS Engineering</p>
-                <p class="edu-detail">GPA: 9.2 / 10</p>
+                <p>B.Tech in Computer Science Engineering</p>
+                <p class="edu-detail highlight">GPA: 9.2 / 10</p>
             </div>
         </div>
     </section>
 
-    <!-- Work Experience Section (Timeline) -->
+    <!-- Work Experience Section -->
     <section id="experience">
         <h2>Work Experience</h2>
         <p class="section-note">Click on an item to view details</p>
@@ -75,51 +88,65 @@
             <!-- Fidelity Full Time -->
             <div class="timeline-item" data-target="job1">
                 <div class="timeline-dot"></div>
-                <div class="job-header">
-                    <div class="job-title">Software Engineer <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="job-company">Fidelity Investments</div>
-                </div>
-                <p class="job-date">Aug 2023 – Aug 2025</p>
-                <div class="job-details">
-                    <ul>
-                        <li>Modernized 70+ trading microservices by upgrading runtimes, reducing production incidents by 80%.</li>
-                        <li>Engineered an ESG analytics platform used by 20+ portfolio managers across $2B+ AUM.</li>
-                        <li>Enhanced reliability to 95% SLA by refining API contracts and stabilizing schema migrations.</li>
-                        <li>Developed backend APIs for a real-time insights platform scaled for 3M+ Intuit Mint users.</li>
-                    </ul>
+                <div class="job-card glass-panel">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Software Engineer</div>
+                            <div class="job-company">Fidelity Investments</div>
+                        </div>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </div>
+                    <p class="job-date">Aug 2023 – Aug 2025</p>
+                    <div class="job-details">
+                        <ul>
+                            <li>Modernized 70+ trading microservices by upgrading runtimes, reducing production incidents by 80%.</li>
+                            <li>Engineered an ESG analytics platform used by 20+ portfolio managers across $2B+ AUM.</li>
+                            <li>Enhanced reliability to 95% SLA by refining API contracts and stabilizing schema migrations.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- Fidelity Intern -->
             <div class="timeline-item" data-target="job2">
                 <div class="timeline-dot"></div>
-                <div class="job-header">
-                    <div class="job-title">Software Dev Intern <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="job-company">Fidelity Investments</div>
-                </div>
-                <p class="job-date">Feb 2023 – Jul 2023</p>
-                <div class="job-details">
-                    <ul>
-                        <li>Designed CIO’s real-time portfolio dashboard, cutting insight delay from 7 days to seconds.</li>
-                        <li>Optimized SQL/caching for $5B+ AUM investment teams, saving est. $2M+ annually.</li>
-                        <li>Built CI/CD pipelines with Jenkins, eliminating manual deploys and reducing errors by 70%.</li>
-                    </ul>
+                <div class="job-card glass-panel">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Software Dev Intern</div>
+                            <div class="job-company">Fidelity Investments</div>
+                        </div>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </div>
+                    <p class="job-date">Feb 2023 – Jul 2023</p>
+                    <div class="job-details">
+                        <ul>
+                            <li>Designed CIO’s real-time portfolio dashboard, cutting insight delay from 7 days to seconds.</li>
+                            <li>Optimized SQL/caching for $5B+ AUM investment teams, saving est. $2M+ annually.</li>
+                            <li>Built CI/CD pipelines with Jenkins, eliminating manual deploys and reducing errors by 70%.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- Tune.ai -->
             <div class="timeline-item" data-target="job3">
                 <div class="timeline-dot"></div>
-                <div class="job-header">
-                    <div class="job-title">Software Developer <i class="fas fa-chevron-down chevron"></i></div>
-                    <div class="job-company">Tune.ai</div>
-                </div>
-                <p class="job-date">Jun 2022 – Aug 2022</p>
-                <div class="job-details">
-                    <ul>
-                        <li>Engineered training pipelines for 3 ML models, reducing overhead by 85%.</li>
-                        <li>Instrumented HuggingFace metrics layer, logging 15+ training signals to cut debugging time by 60%.</li>
-                    </ul>
+                <div class="job-card glass-panel">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Software Developer</div>
+                            <div class="job-company">Tune.ai</div>
+                        </div>
+                        <i class="fas fa-chevron-down chevron"></i>
+                    </div>
+                    <p class="job-date">Jun 2022 – Aug 2022</p>
+                    <div class="job-details">
+                        <ul>
+                            <li>Engineered training pipelines for 3 ML models, reducing overhead by 85%.</li>
+                            <li>Instrumented HuggingFace metrics layer, logging 15+ training signals to cut debugging time by 60%.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -131,9 +158,10 @@
         <h2>Featured Projects</h2>
         <div class="project-grid">
             <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-project-diagram"></i>
+            <div class="project-card glass-panel">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
+                    <div class="img-overlay"></div>
                 </div>
                 <div class="project-info">
                     <h3>Visual Research Paper</h3>
@@ -148,9 +176,10 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-brain"></i>
+            <div class="project-card glass-panel">
+                <div class="project-img-container">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop" alt="Code Screen" class="project-img">
+                    <div class="img-overlay"></div>
                 </div>
                 <div class="project-info">
                     <h3>ResNet-from-Scratch</h3>
@@ -168,8 +197,16 @@
     <!-- Community Work -->
     <section id="community">
         <h2>Community Work</h2>
-        <div class="community-content">
-            <h3>Head of AI Research @ Next Tech Lab</h3>
+        <div class="community-content glass-panel">
+            <div class="community-header">
+                <div class="icon-box secondary-box">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <h3>Head of AI Research</h3>
+                    <span class="community-sub">Next Tech Lab</span>
+                </div>
+            </div>
             <span class="community-date">Mar 2021 – Jan 2023</span>
             <p>Led 70+ researchers across 40+ ML projects and created ML programs for 400+ students, standardizing pipelines and scaling applied AI adoption.</p>
             <div class="tags community-tags">
@@ -182,9 +219,9 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <h2>Contact Me</h2>
-        <div class="contact-container">
+        <div class="contact-container glass-panel">
             <p class="contact-intro">
-                I am currently looking for Software Engineering or ML Engineering internships for Summer 2026. Feel free to reach out!
+                I am currently looking for Software Engineering or ML Engineering internships for Summer 2026.
             </p>
             
             <a href="mailto:harshit_aggarwal@brown.edu" class="email-link">harshit_aggarwal@brown.edu</a>
@@ -198,7 +235,7 @@
         </div>
     </section>
 
-    <!-- External JS -->
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
