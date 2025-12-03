@@ -153,95 +153,87 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (Infinite Carousel) -->
     <section id="projects">
         <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <!-- Project 1 -->
-            <div class="project-card glass-panel">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
-                    <div class="img-overlay"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Visual Research Paper</h3>
-                    <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
-                    <div class="tags">
-                        <span class="tag">BERT</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">PyVis</span>
-                    </div>
-                </div>
+        
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <button class="carousel-nav prev-btn"><i class="fas fa-chevron-left"></i></button>
+            
+            <div class="carousel-track-container">
+                <ul class="carousel-track">
+                    
+                    <!-- Project 1 -->
+                    <li class="project-card glass-panel">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Visual Research Paper</h3>
+                            <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
+                            <div class="tags">
+                                <span class="tag">BERT</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">PyVis</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Project 2 -->
+                    <li class="project-card glass-panel">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop" alt="Code Screen" class="project-img">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>ResNet-from-Scratch</h3>
+                            <p class="project-desc">Constructed a ResNet Model from scratch with 2% accuracy variance and 30% faster training.</p>
+                            <div class="tags">
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Deep Learning</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Project 3 (Added for Demo) -->
+                    <li class="project-card glass-panel">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be1?q=80&w=2070&auto=format&fit=crop" alt="AI Robot" class="project-img">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>AI Financial Analyst</h3>
+                            <p class="project-desc">Built a stock prediction agent using Reinforcement Learning (PPO) reaching 15% annual ROI.</p>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">RL</span>
+                                <span class="tag">Finance</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Project 4 (Added for Demo) -->
+                    <li class="project-card glass-panel">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop" alt="Matrix Code" class="project-img">
+                            <div class="img-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Distributed Systems</h3>
+                            <p class="project-desc">Implemented a Raft consensus algorithm in Go to manage fault-tolerant replicated logs.</p>
+                            <div class="tags">
+                                <span class="tag">Go</span>
+                                <span class="tag">Distributed</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card glass-panel">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop" alt="Code Screen" class="project-img">
-                    <div class="img-overlay"></div>
-                </div>
-                <div class="project-info">
-                    <h3>ResNet-from-Scratch</h3>
-                    <p class="project-desc">Constructed a ResNet Model from scratch with 2% accuracy variance and 30% faster training.</p>
-                    <div class="tags">
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-panel">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
-                    <div class="img-overlay"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Visual Research Paper</h3>
-                    <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
-                    <div class="tags">
-                        <span class="tag">BERT</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">PyVis</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-panel">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
-                    <div class="img-overlay"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Visual Research Paper</h3>
-                    <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
-                    <div class="tags">
-                        <span class="tag">BERT</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">PyVis</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card glass-panel">
-                <div class="project-img-container">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef526b004297?q=80&w=2070&auto=format&fit=crop" alt="Network Graph" class="project-img">
-                    <div class="img-overlay"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Visual Research Paper</h3>
-                    <p class="project-desc">PDF-to-graph summarization pipeline improving research comprehension by 70% for 50+ users.</p>
-                    <div class="tags">
-                        <span class="tag">BERT</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">PyVis</span>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-nav next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -249,7 +241,6 @@
     <section id="community">
         <h2>Community Work</h2>
         <div class="community-grid">
-            
             <!-- Item 1 -->
             <div class="community-card glass-panel">
                 <div class="community-header">
@@ -268,8 +259,7 @@
                     <span class="tag secondary-tag">Mentorship</span>
                 </div>
             </div>
-
-            <!-- Item 2 (New Item) -->
+            <!-- Item 2 -->
             <div class="community-card glass-panel">
                 <div class="community-header">
                     <div class="icon-box primary-box">
@@ -287,25 +277,6 @@
                     <span class="tag secondary-tag">Workshops</span>
                 </div>
             </div>
-
-            <div class="community-card glass-panel">
-                <div class="community-header">
-                    <div class="icon-box secondary-box">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div>
-                        <h3>Head of AI Research</h3>
-                        <span class="community-sub">Next Tech Lab</span>
-                    </div>
-                </div>
-                <span class="community-date">Mar 2021 – Jan 2023</span>
-                <p class="community-desc">Led 70+ researchers across 40+ ML projects and created ML programs for 400+ students, standardizing pipelines.</p>
-                <div class="tags community-tags">
-                    <span class="tag secondary-tag">Leadership</span>
-                    <span class="tag secondary-tag">Mentorship</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -316,10 +287,8 @@
             <p class="contact-intro">
                 I am currently looking for Software Engineering or ML Engineering internships for Summer 2026.
             </p>
-            
             <a href="mailto:harshit_aggarwal@brown.edu" class="email-link">harshit_aggarwal@brown.edu</a>
             <p class="contact-sub">+1 (401) 255-2976 | Providence, RI</p>
-
             <div class="social-links">
                 <a href="https://linkedin.com/in/harshitaggarwal01" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/harshitaggarwal01" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
